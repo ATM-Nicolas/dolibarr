@@ -634,45 +634,13 @@ class Project extends CommonObject
 	        }
         }
 
+        // fetch tasks
+		$this->getLinesArray($user);
+
         // Delete tasks
-        if (! $error)
-        {
-	        $sql = "DELETE FROM " . MAIN_DB_PREFIX . "projet_task_time";
-	        $sql.= " WHERE fk_task IN (SELECT rowid FROM " . MAIN_DB_PREFIX . "projet_task WHERE fk_projet=" . $this->id . ")";
-
-	        $resql = $this->db->query($sql);
-	        if (!$resql)
-	        {
-	        	$this->errors[] = $this->db->lasterror();
-	        	$error++;
-	        }
-        }
-
-        if (! $error)
-        {
-	        $sql = "DELETE FROM " . MAIN_DB_PREFIX . "projet_task_extrafields";
-	        $sql.= " WHERE fk_object IN (SELECT rowid FROM " . MAIN_DB_PREFIX . "projet_task WHERE fk_projet=" . $this->id . ")";
-
-	        $resql = $this->db->query($sql);
-	        if (!$resql)
-	        {
-	        	$this->errors[] = $this->db->lasterror();
-	        	$error++;
-	        }
-        }
-
-        if (! $error)
-        {
-	        $sql = "DELETE FROM " . MAIN_DB_PREFIX . "projet_task";
-	        $sql.= " WHERE fk_projet=" . $this->id;
-
-	        $resql = $this->db->query($sql);
-	        if (!$resql)
-	        {
-	        	$this->errors[] = $this->db->lasterror();
-	        	$error++;
-	        }
-        }
+		foreach($this->lines as &$task) {
+			$task->delete($user);
+		}
 
         // Delete project
         if (! $error)
