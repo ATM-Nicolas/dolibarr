@@ -131,12 +131,13 @@ function printBookmarksList($aDb, $aLangs)
 		            // Method is POST for internal link, GET for external
 		            if (urlselected.startsWith(\'http\'))
 		            {
-		                var newmethod=\'GET\';
-		                jQuery("form#actionbookmark").attr("method", newmethod);
-		                console.log("We change method to newmethod="+newmethod);
-			            jQuery("#actionbookmark").submit();
-		                console.log("We restore method to POST");
-						jQuery("form#actionbookmark").attr("method", \'POST\');
+						location.href = urlselected;
+		                // var newmethod=\'GET\';
+		                // jQuery("form#actionbookmark").attr("method", newmethod);
+		                // console.log("We change method to newmethod="+newmethod);
+			            // jQuery("#actionbookmark").submit();
+		                // console.log("We restore method to POST");
+						// jQuery("form#actionbookmark").attr("method", \'POST\');
 					}
 					else
 					{
