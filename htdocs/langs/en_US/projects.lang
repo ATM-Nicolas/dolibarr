@@ -243,3 +243,7 @@ OneLinePerUser=One line per user
 ServiceToUseOnLines=Service to use on lines
 InvoiceGeneratedFromTimeSpent=Invoice %s has been generated from time spent on project
 ProjectBillTimeDescription=Check if you enter timesheet on tasks of project AND you plan to generate invoice(s) from the timesheet to bill the customer of the project (do not check if you plan to create invoice that is not based on entered timesheets).
+ShowForecastProfitBoard=Show forecast profit board on project overview
+DefaultForecastTHM=Default average hourly rate used in the forecast profit board
+ForecastProfit=Forecast profit
+RealProfit=Real profit
